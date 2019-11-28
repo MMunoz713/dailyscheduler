@@ -1,6 +1,8 @@
 var currentDay = moment().format("MMMM Do YYYY, h:mm");
 $("#currentDay").text(currentDay);
 
+var todoList = document.querySelector("#todo-list");
+var hours = ["NineAM", "TenAM", "ElevenAM", "TwelvePM", "OnePM", "TwoPM", "ThreePM", "FourPM", "FivePM"];
 
 var curTime = moment().format("H");
 $(".time").each(function(index, value){
@@ -22,3 +24,20 @@ $(".time").each(function(index, value){
  }
 })
 
+// This function retrieves the values from the text input and saves it to its specified hour.
+function store(hour){
+  var textFieldInput = document.getElementById("textField" + hour);
+  localStorage.setItem(hour, textFieldInput.value);
+  console.log("Stored value for: " + hour + " : " + textFieldInput.value);
+}
+
+function init() {
+  for (i = 0; i < hours.length; i++) {
+    var hour = hours[i];
+    document.getElementById("textField" + hour).value = localStorage.getItem(hour);
+  }
+
+  console.log("App Initialized");
+}
+
+init();
