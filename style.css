@@ -2,7 +2,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     line-height: 1;
-    background-image: url("b.jpg");
+    background-image: url("assets/b.jpg");
   }
   
   textarea{
